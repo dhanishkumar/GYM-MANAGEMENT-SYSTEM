@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Billing - Gym Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+  <div class="logo">🏋️‍♂️ FitLife Gym</div>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="billing.html">Billing</a>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+  </nav>
+</header>
+
+
+  <h1>Billing Information</h1>
+  <div id="billingDetails">
+    <p><strong>Membership Plan:</strong> Gold</p>
+    <p><strong>Next Payment Due:</strong> 30 June 2025</p>
+    <p><strong>Amount:</strong> ₹1,200</p>
+    <button onclick="alert('Payment gateway integration coming soon!')">Pay Now</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAoINXG8SVCciLedWz1iKUUyxLTCBtUOyI",
+      authDomain: "gym-management-system-8195f.firebaseapp.com",
+      projectId: "gym-management-system-8195f"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        alert("Please login to access billing.");
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</body>
+</html>
